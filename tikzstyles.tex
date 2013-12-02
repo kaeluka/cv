@@ -1,0 +1,58 @@
+\usepackage{xcolor}
+\definecolor{uucolor}{RGB}{191,31,50}
+
+\colorlet{colorA}{orange!80!black}
+\colorlet{colorB}{blue}
+\colorlet{colorC}{green!50!black}
+\colorlet{colorD}{uucolor!70!black}
+\colorlet{colorE}{brown!50!black}
+
+\colorlet{darkA}{colorA!80!black}
+\colorlet{darkB}{colorB!60!black}
+\colorlet{darkC}{colorC!80!black}
+\colorlet{darkD}{colorD!80!black}
+\colorlet{darkE}{colorE!80!black}
+
+\colorlet{verydarkA}{colorA!40!black}
+\colorlet{verydarkB}{colorB!30!black}
+\colorlet{verydarkC}{colorC!40!black}
+\colorlet{verydarkD}{colorD!40!black}
+\colorlet{verydarkE}{colorE!40!black}
+
+\newcommand{\colorpalette}{
+  \begin{tikzpicture}
+    \coordinate (last) at (0,0);
+    \foreach \letter in {A,B,C,D,E} {
+      \node[circle,fill=color\letter, label=above:color\letter] at ($(last) + (3,0)$) (last) {};
+      \node[circle,fill=dark\letter, label=above:dark\letter] at ($(last) - (0,1)$) {};
+      \node[circle,fill=verydark\letter, label=above:verydark\letter] at ($(last) - (0,2)$) {};
+    }
+  \end{tikzpicture}
+}
+
+\colorlet{uucolorsecondary}{colorB}
+
+\usetikzlibrary{snakes,arrows,calc,fit}
+\tikzstyle actor border=[thick]
+\tikzstyle object=[rectangle, draw, rounded corners=2mm]
+\tikzstyle region border=[semithick]
+\tikzstyle connection=[thick, shorten >= 2mm, shorten <= 2mm ]
+\tikzstyle reference=[->, thick, style=densely dashed, shorten >= 1mm]
+\tikzstyle ownership=[-stealth, thick, shorten >= 1mm]
+\tikzstyle reverseownership=[stealth-, thick, shorten >= 1mm]
+\tikzstyle thread=[->, thick, snake=snake]
+\tikzstyle messageOne=[->>, thick]
+\tikzstyle backwardMessageOne=[messageOne, <<-]
+\tikzstyle message=[messageOne]
+\tikzstyle backwardMessage=[backwardMessageOne]
+\tikzstyle messageTwo=[<->>, thick]
+\tikzstyle read=[<-, connection]
+\tikzstyle write=[->, connection]
+\tikzstyle readwrite=[<->, connection]
+\tikzstyle helpline=[very thin, dashed]
+\tikzstyle highlight=[very thick, draw=uucolor, inner sep=3mm]
+
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{foreground,main,background}
