@@ -1,5 +1,7 @@
 cv.pdf: cv.tex tikzstyles.tex
 	pdflatex cv
+	pdflatex cv
+	pdflatex cv
 
 clean: clean_latex clean_logs
 

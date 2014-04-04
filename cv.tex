@@ -17,12 +17,12 @@
 
 \input{tikzstyles.tex}
 
-\colorlet{colBI}{verydarkC}
-\colorlet{colUP}{verydarkD}
-\colorlet{colSZG}{verydarkB}
+\colorlet{colBI}{darkC}
+\colorlet{colUP}{darkD}
+\colorlet{colSZG}{darkB}
 
-\colorlet{colwork}{darkA}
-\colorlet{coleducation}{darkE}
+\colorlet{colwork}{colorA}
+\colorlet{coleducation}{colorE}
 
 \tikzstyle move=[very thick, shorten <= 0mm, shorten >= 1mm, ->]
 \tikzstyle timeline=[white]%[very thick, ->]
@@ -45,6 +45,8 @@
   \draw[move] (BI) to (UP);
 \end{tikzpicture}
 
+\def\maxyear{2014}
+\def\maxyearplusone{2015}
 %%% BACKGROUND TIME
 \begin{tikzpicture}[overlay, remember picture]
   \coordinate (Start) at ($ (current page.south west) + (1.5cm,0cm)$);
@@ -52,17 +54,17 @@
 
   \draw[timeline] (Start) -- (End);
 
-  \foreach \year in {2006,...,2014} {
-    \pgfmathparse{2014-2006}
-    \coordinate (Y\year M1) at ($(End)!2013/\pgfmathresult - \year/\pgfmathresult!(Start)$);
-    \coordinate (Y\year) at ($(End)!2013/\pgfmathresult - \year/\pgfmathresult!(Start)$);
+  \foreach \year in {2006,...,\maxyearplusone} {
+    \pgfmathparse{\maxyear-2006}
+    \coordinate (Y\year M1) at ($(End)!\maxyear/\pgfmathresult - \year/\pgfmathresult!(Start)$);
+    \coordinate (Y\year) at ($(End)!\maxyear/\pgfmathresult - \year/\pgfmathresult!(Start)$);
     \node[anchor=center, xshift=-5mm] at (Y\year) {\year};
 %    \foreach \month in {1,...,12} {
 %      \draw (Y\year) ++(90:0.08333cm*\month)
 %    }
   }
 
-  \foreach \year in {2006,...,2013} {
+  \foreach \year in {2006,...,\maxyear} {
     \foreach \month in {2,...,12} {
       \pgfmathparse{\year+1}
       \coordinate (nextyear) at (Y\pgfmathresult);
@@ -76,9 +78,20 @@
     }
   }
 
-  %% hide year 2014...
-  \node[fill=white,minimum size=2cm] at (Y2014M1) {};
+  %% hide last year...
+%  \node[fill=white,minimum size=2cm] at (Y\maxyear M1) {};
+  \node[fill=white,minimum size=2cm] at (Y2006M1) {};
 \end{tikzpicture}
+
+% parameters: #1:title, #2:starttime, #3:endtime, #4:place, #5:description, #6:offset, #7:pos, #8:anchor
+\newcommand{\opentimespan}[8]{
+  \begin{tikzpicture}[overlay,remember picture]
+    \coordinate (linestart) at ($ #2 + (0:0.5cm) + (0:#6) $);
+    \coordinate (lineend) at ($ #3 + (0:0.5cm) + (0:#6) $);
+    \node [anchor=#8, text width=7.5cm,fill=white,xshift=2mm] at ($ (lineend)!#7!(linestart) $) {{\em\textcolor{col#4}{#1}} -- #5};
+    \draw[|->,color=col#4, line width=1pt] (linestart) -- (lineend);
+  \end{tikzpicture}
+}
 
 
 % parameters: #1:title, #2:starttime, #3:endtime, #4:place, #5:description, #6:offset, #7:pos, #8:anchor
@@ -105,13 +118,22 @@
 %  Rhomberg}{(Y2011M8)}{(Y2012M9)}{(SZG)}{Implementation of a data
 %  processing application in C++}{0.5}{0}{north west}
 
-\event{Publication}{(Y2012M6)}{UP}{\Href{http://lame.dei.uc.pt/images/1/11/Lame12_submission_3.pdf}{``The Joelle Programming Language''}, \"{O}stlund, Brandauer, Wrigstad,
-  International Workshop on Languages for the Multi-Core Era,
-  ECOOP'12, \tag{education}}{0.5cm}
+\opentimespan{Ph.D student, Uppsala
+  University}{(Y2013M4)}{(Y2014M4)}{UP}{\\Developing type systems
+  for alias control; supervised by Tobias Wrigstad and Dave
+  Clarke. \tag{work} \tag{education}}{0cm}{0.25}{north west}
 
-\timespan{M.Sc. in Computer Science}{(Y2010M9)}{(Y2013M3)}{UP}{Uppsala
-  University, M.Sc. thesis ``Task Scheduling using Joelle's
-  Effects'' \tag{education}}{0cm}{0.5}{north west}
+
+\event{Publication}{(Y2012M6)}{UP}{\Href{http://lame.dei.uc.pt/images/1/11/Lame12_submission_3.pdf}{\\``The
+    Joelle Programming Language''}, \"{O}stlund, Brandauer,
+  Wrigstad, International Workshop on Languages for the Multi-Core
+  Era, ECOOP'12. \tag{education}}{0.5cm}
+
+\timespan{M.Sc. in Computer Science, Uppsala
+  University}{(Y2010M9)}{(Y2013M3)}{UP}{M.Sc. thesis ``Task
+  Scheduling using Joelle's Effects''. Implementing a task
+  scheduler for a parallel programming language.
+  \tag{education}}{0cm}{0.5}{north west}
 
 \timespan{B.Sc. in Cognitive
   Informatics}{(Y2007M10)}{(Y2010M8)}{BI}{Average grade 1.5 (grades
@@ -126,7 +148,7 @@
 \timespan{Student Assistant for
   A.I.}{(Y2009M2)}{(Y2010M6)}{BI}{Teaching 15-20 students for one
   term, also developing VR applications, eye tracking
-  software \tag{work} \tag{education}}{0.5cm}{0}{north west}
+  software. \tag{work} \tag{education}}{0.5cm}{0}{north west}
 
 \event{Publication}{(Y2009M8)}{BI}{\Href{http://www.techfak.uni-bielefeld.de/ags/wbski/hiwis/sbrandau/files/navigation_in_virtual_reality_with_the_wii_balance_board.pdf}{``Navigation in Virtual Reality
   with the Wii Balance Board''}, Hilsendeger, Brandauer, Tolksdorf,
@@ -148,24 +170,20 @@
         [rotate=0,anchor=south east,inner sep=1pt] (Name) {\huge
           \textsc{Stephan Brandauer}};
 
-  \draw (Name.east) ++(0,-1em) node[text width=5cm,anchor=north
-    east,inner sep=1pt] (Description) {\begin{flushright}Born
-      (Aug. 27th , 1987 in Hallein near Salzburg) and raised in
-      \tagtwo{SZG}{austria}, I studied in \tagtwo{BI}{germany} and
-      \tagtwo{UP}{sweden}.  I regard working with people of different
-      cultural backgrounds a chance for everyone to learn with and
-      from each other and consider myself to be an outgoing, hard
-      working computer engineer with an interest in the mathematical
-      foundations of my field. I believe in code quality and am very
-      self critical; improving my programming capabilities on my own
-      has been one of my main goals over the last years and was
-      recently made complete by an interest in programming languages
-      theory. Currently, I am working with languages for multi core
-      programming.\end{flushright}};
+        \draw (Name.west) ++(0,-1em) node[text
+        width=5.8cm,anchor=north west,inner sep=1pt] (Description)
+        {\begin{flushleft}Born and raised near Salzburg, Austria,
+            I studied in Germany and Sweden. I work, teach, and
+            learn as a Ph.D. student at Uppsala University. I'm
+            interested in creating statically typed languages that
+            attempt to express aliasing at the type level -- and
+            whether we can use type systems to make imperative
+            programming safe.
+          \end{flushleft}};
 
-  \draw (Description.north east) ++(0:2mm) node[rotate=90,inner
-    sep=1pt,anchor=north east] (Contact) {+46 700 599 236,
-    stephan.brandauer@gmail.com, @kaeluka};
+  \draw (Name.south east) ++(0:2mm) node[rotate=90,inner
+    sep=1pt,anchor=south east] (Contact) {+46 700 599 236,
+    stephan.brandauer@it.uu.se, @sbrandauer};
 \end{tikzpicture}
 
 \end{document}
