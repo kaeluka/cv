@@ -45,8 +45,8 @@
   \draw[move] (BI) to (UP);
 \end{tikzpicture}
 
-\def\maxyear{2014}
-\def\maxyearplusone{2015}
+\def\maxyear{2016}
+\def\maxyearplusone{2017}
 %%% BACKGROUND TIME
 \begin{tikzpicture}[overlay, remember picture]
   \coordinate (Start) at ($ (current page.south west) + (1.5cm,0cm)$);
@@ -109,27 +109,35 @@
   \timespan{#1}{#2}{#2}{#3}{#4}{#5}{0}{west}
 }
 
-\newcommand{\tagtwo}[2]{\textcolor{col#1}{\texttt{\##2}}}
+% \newcommand{\tagtwo}[2]{\textcolor{col#1}{\texttt{\##2}}}
+\newcommand{\tagtwo}[2]{}
 \newcommand{\tag}[1]{\tagtwo{#1}{#1}}
 
 %%%%%%%%%%%%%%%% DATA
 
-%\timespan{Freelancing at
-%  Rhomberg}{(Y2011M8)}{(Y2012M9)}{(SZG)}{Implementation of a data
-%  processing application in C++}{0.5}{0}{north west}
-
 \opentimespan{Ph.D student, Uppsala
-  University}{(Y2013M4)}{(Y2014M4)}{UP}{\\Developing type systems
+  University}{(Y2013M4)}{(Y2016M10)}{UP}{\\Developing type systems
   for alias control; supervised by Tobias Wrigstad and Dave
-  Clarke. \tag{work} \tag{education}}{0cm}{0.25}{north west}
+  Clarke. \tag{work} \tag{education}}{0cm}{0.825}{north west}
+
+\event{Publication $\times$
+  2}{(Y2015M10)}{UP}{\Href{http://stbr.me/Disjointness-Domains-for-Fine-Grained-Aliasing}{``Disjointness
+    Domains for Fine-Grained Aliasing''}, Brandauer, Wrigstad, Object-Oriented
+  Programming, Systems,
+  Languages \& Applications.\\
+  \Href{http://stbr.me/Encore-Glimpse}{``Parallel Objects for Multicores: A
+    Glimpse at the Parallel Language Encore''}, \small{Brandauer, Castegren, Clarke,
+  Fernández, Broch Johnsen, Pun, Tapia Tarifa, Wrigstad, Yang, International
+  School on Formal Methods for the Design of Computer, Communication and
+  Software Systems: Multicore Programming}}{0.5cm}
 
 
 \event{Publication}{(Y2012M6)}{UP}{\Href{http://lame.dei.uc.pt/images/1/11/Lame12_submission_3.pdf}{\\``The
-    Joelle Programming Language''}, \"{O}stlund, Brandauer,
+    Joelle Programming Language''}, \small{\"{O}stlund, Brandauer,
   Wrigstad, International Workshop on Languages for the Multi-Core
-  Era, ECOOP'12. \tag{education}}{0.5cm}
+  Era, ECOOP'12.} \tag{education}}{0.5cm}
 
-\timespan{M.Sc. in Computer Science, Uppsala
+\timespan{M.Sc. in CS, Uppsala
   University}{(Y2010M9)}{(Y2013M3)}{UP}{M.Sc. thesis ``Task
   Scheduling using Joelle's Effects''. Implementing a task
   scheduler for a parallel programming language.
@@ -137,7 +145,7 @@
 
 \timespan{B.Sc. in Cognitive
   Informatics}{(Y2007M10)}{(Y2010M8)}{BI}{Average grade 1.5 (grades
-  1-5, 1 best), B.Sc. thesis: 2D physics engine \tag{education}}{0cm}{0.65}{north
+  1-5, 1 best), B.Sc. thesis: 2D physics engine \tag{education}}{0cm}{0.6}{north
   west}
 
 \timespan{Freelancing at Comet Consulting} {(Y2006M9)}
@@ -145,21 +153,15 @@
            automatic 3D laser-range-scan data on construction
            sites \tag{work}}{0.5cm}{0}{north west}
 
-\timespan{Student Assistant for
-  A.I.}{(Y2009M2)}{(Y2010M6)}{BI}{Teaching 15-20 students for one
-  term, also developing VR applications, eye tracking
-  software. \tag{work} \tag{education}}{0.5cm}{0}{north west}
+\timespan{Teaching- and Research Assistant}{(Y2009M2)}{(Y2010M6)}{BI}{Teach AI,
+  develop VR and eye tracking apps. \tag{work} \tag{education}}{0.5cm}{0}{north west}
 
-\event{Publication}{(Y2009M8)}{BI}{\Href{http://www.techfak.uni-bielefeld.de/ags/wbski/hiwis/sbrandau/files/navigation_in_virtual_reality_with_the_wii_balance_board.pdf}{``Navigation in Virtual Reality
-  with the Wii Balance Board''}, Hilsendeger, Brandauer, Tolksdorf,
-  Fr\"{o}hlich, 6th Workshop on Virtual and Augmented Reality,
-  2009 \tag{education}}{1cm}
+\event{Publication}{(Y2009M8)}{BI}{\Href{http://www.techfak.uni-bielefeld.de/ags/wbski/hiwis/sbrandau/files/navigation_in_virtual_reality_with_the_wii_balance_board.pdf}{``Navigation in VR with the Wii Balance Board''}, \small{Hilsendeger, Brandauer, Tolksdorf,
+  Fr\"{o}hlich, 6th Workshop on VR/AR,
+  2009 \tag{education}}}{1cm}
 
-\timespan{Laube GmbH}{(Y2006M9)}{(Y2007M6)}{SZG}{Social work instead
-  of mandatory military service \tag{work}}{1cm}{0.5}{west}
-
-\event{earned Matura}{(Y2006M7)}{SZG}{austrian high school leaving
-  certificate \tag{education}}{0}
+\timespan{Laube GmbH}{(Y2006M9)}{(Y2007M6)}{SZG}{Social work instead of being
+  drafted for military service. \tag{work}}{1cm}{0.5}{west}
 
 %%%%%%%%%%%%%%%%% PERSONAL DETAILS
 \begin{tikzpicture}[overlay,remember picture]
@@ -170,15 +172,15 @@
         [rotate=0,anchor=south east,inner sep=1pt] (Name) {\huge
           \textsc{Stephan Brandauer}};
 
-        \draw (Name.west) ++(0,-1em) node[text
-        width=5.8cm,anchor=north west,inner sep=1pt] (Description)
-        {\begin{flushleft}Born and raised near Salzburg, Austria,
-            I studied in Germany and Sweden. I work, teach, and
-            learn as a Ph.D. student at Uppsala University. I'm
-            interested in creating statically typed languages that
-            attempt to express aliasing at the type level -- and
-            whether we can use type systems to make imperative
-            programming safe.
+        \draw (Name.west) ++(0,-1em) node[text width=5.8cm,anchor=north
+        west,inner sep=1pt] (Description)
+        {\begin{flushleft}\href{http://stbr.me/work}{\texttt{http://stbr.me/work}}\\Born
+            and raised near Salzburg, Austria, I studied in Germany and Sweden.
+            I work, teach, and learn as a Ph.D. student at Uppsala University.
+            I'm interested in understanding how mutable state is used by
+            practitioners, and in creating language abstractions that let
+            practitioners control aliasing of mutable state. This serves two
+            interests: writing correct software, and writing efficient software.
           \end{flushleft}};
 
   \draw (Name.south east) ++(0:2mm) node[rotate=90,inner
