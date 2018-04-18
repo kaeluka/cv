@@ -1,0 +1,280 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wilson Resume/CV
+% XeLaTeX Template
+% Version 1.0 (22/1/2015)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Howard Wilson (https://github.com/watsonbox/cv_template_2004) with
+% extensive modifications by Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} % Default font size
+
+\input{structure.tex} % Include the file specifying document layout
+\usepackage{tikz}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\headline{Stephan}{Brandauer} % Print the main header
+
+%------------------------------------------------
+
+\vspace{-2mm}\hfill\emph{\sectionf{Computer Science and Software Development.}}\\[7mm]
+\newcommand{\maillink}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+\begin{center}
+  \begin{tabular}{rl|rl}
+    \itemtitle{Address}     & Bredmansgatan 4A, & \itemtitle{Phone}  & +46 700 599 236 \\
+                            & 752 24 Uppsala,   & \hspace{4mm}\itemtitle{E-Mail} & \maillink{stephan.brandauer@it.uu.se} \\
+                            & Sweden            & \itemtitle{Web}     & \url{http://stbr.me} \\
+    \itemtitle{Nationality} & Austrian      & \itemtitle{Other}  & \href{https://twitter.com/sbrandauer}{\includegraphics[height=1em,trim={30mm 34mm 0 13mm},clip]{twitter.eps}\texttt{sbrandauer}}, \href{https://github.com/kaeluka}{\includegraphics[height=1em,trim={48mm 145mm 127mm 16mm},clip]{github.eps} \texttt{kaeluka}} \\
+    \itemtitle{Languages}   & German (\emph{native}), English (\emph{fluent}) & & \href{https://www.linkedin.com/in/stephan-brandauer}{\includegraphics[height=0.8em]{linkedin.eps} \texttt{stephan-brandauer}} \\
+                            & Swedish (\emph{basic working proficiency})\hspace{4mm}
+  \end{tabular}
+\end{center}
+% ----------------------------------------------------------------------------------------
+%	PERSONAL PROFILE
+%----------------------------------------------------------------------------------------
+
+\section{Personal Profile}
+I'm a last year PhD student at Uppsala University. My research has focused on
+aliasing (several variables holding references to the same datum) in imperative
+programming languages. Aliasing makes both writing, understanding, and
+optimising code hard. Aliasing has been the common theme that has been tying
+together my research spanning from \textbf{type system/language design} to
+\textbf{dynamic analysis of program corpora} to a domain-specific language for
+\textbf{data structure-design and -optimisation}.
+
+I deeply care about program performance, but I also think that most programmers
+shouldn't need to. To this end, I've been trying to find ways to constrain high
+level languages in just the right way: constraints that don't hurt writing code
+in practise, yet give enough information to compiler, runtime, or framework to
+do optimisations that can provide great program performance.
+
+
+I'm especially, but not exclusively, interested in opportunities that include
+any or several of the following:
+
+\begin{itemize}
+\item Building tooling support for program development. This includes
+  performance measurement, bug finding, testing, data-visualisation and
+  -analysis, framework- and runtime-development.
+\item Doing research in an industrial setting.
+\item Teaching/mentoring others.
+\item Work on language design- and implementation, including domain-specific languages for domains I'd get to learn about in the process!
+\item Working on programming runtimes or garbage collectors.
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\project}[1]{\emph{#1}}
+\newcommand{\ddomains}{\project{Disjointness Domains}}
+\newcommand{\spencer}{\project{Spencer}}
+\newcommand{\secret}{\project{(name withheld)}}
+\newcommand{\encore}{\project{Encore}}
+
+\section{Education}
+
+\tabbedblock{
+\bf{2013-2018} \> PhD in Computer Science -
+\href{http://www.universityofcalifornia.edu}{Uppsala University} \\[5pt]
+\> Research on programming language design, analysis, and implementation. \\
+\> \parbox{13cm}{During my PhD education I have:
+\begin{itemize}
+  \renewcommand{\labelitemi}{\sqbullet}
+\item $\ldots$ designed \ddomains{}, a type system to express fine grained
+  alias invariants in data structures.
+\item $\ldots$ implemented \spencer{}, a dynamic analysis tool that runs real
+  world Java software, collects extensive program traces and lets users analyse
+  these traces using a specifically designed \emph{domain-specific language}
+  executed by a \emph{web service}.
+\item $\ldots$ worked on \secret{}, a domain-specific
+  language and compiler using Java's annotation framework that let users
+  implement data structures that are simple, have good performance, and can
+  adapt their performance to match a wide range of use cases. \secret{} is
+  currently unpublished.
+\item $\ldots$ worked on the compiler of the \encore{} research language, an object
+  oriented programming language with concurrently executing actors as objects.
+\end{itemize}}
+}
+
+%------------------------------------------------
+
+\tabbedblock{
+  \bf{2011-2013}
+  \> Master of Science, Computer Science. Uppsala University.\\[5pt]
+  \> Degree project: design, implement, and benchmark a mailbox data structure
+  for an actor-\\
+  \> based language (called ``Joelle'') that permits \emph{parallel
+    processing of messages within an actor.}
+}
+
+\tabbedblock{
+  \bf{2007-2011}
+  \> Bachelor of Science, Cognitive Informatics. Bielefeld University.\\[5pt]
+  \> Degree project: Build a 2D rigid body and particle physics engine with an interactive UI.
+}
+
+%----------------------------------------------------------------------------------------
+%	EMPLOYMENT HISTORY SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Selected Publications}
+\newcommand{\paperentry}[5]{\bf{#1}\>\itemtitle{#2}\\\>\parbox{10cm}{\footnotesize{#3}}\\[1mm]\>\parbox{10cm}{#4}\\[1mm]\>\footnotesize{\url{#5}}\\[5mm]}
+
+\newcommand{\papersgroup}[1]{\begin{tabbing}\hspace{2.5cm} \= \hspace{8cm} \=\kill#1\end{tabbing}}
+
+\papersgroup{
+  \paperentry
+  {???}
+  {\secret{}}
+  {(under submission)}
+  {A domain specific language to develop data structures that are simple, have
+    good performance, and can adapt to many different use cases.}
+  {}
+
+  \paperentry
+  {MSR 2017}
+  {Spencer: Interactive Heap Analysis for the Masses}
+  {Int'l Conf. on Mining Software Repositories (MSR) 2017. Buenos Aires, AR.}
+  {The paper that introduces the Spencer project.}
+  {http://stbr.me/spencer}
+
+  \paperentry
+  {QAPL 2017}
+  {Mining for Safety using Interactive Trace Analysis}
+  {Workshop on Quantitative Aspects of Programming Languages and Systems (QAPL)
+    2017. Uppsala, SE.}
+  {An application of Spencer to a corpus of programs, looking
+    for safety properties of objects (like uniquness, immutability, etc).}
+  {http://stbr.me/spencer}
+
+  \paperentry
+  {SFM 2015}
+  {Parallel Objects for Multicores: A Glimpse at the Parallel Language Encore}
+  {15th Int'l School on Formal Methods f. Design of Computer, Communication and
+    Software Systems (SFM) 2015. Bertinoro, IT.}
+  {An overview of the Encore language.}
+  {http://stbr.me/Encore-Glimpse}
+
+  \paperentry
+  {OOPSLA 2015}
+  {Disjointness Domains for Fine-Grained Aliasing}
+  {Object-Oriented Programming, Systems, Languages and Applications (OOPSLA)
+    2015. Pittsburgh, PA, USA.}
+  {A novel type system for alias control.}
+  {http://stbr.me/Disjointness-Domains-for-Fine-Grained-Aliasing}
+}
+
+\section{Employment History}
+
+\job
+{2013 -}{Present}
+{Uppsala University}
+{http://katalog.uu.se/empinfo/?id=N12-145}
+{PhD Student in programming language design, implementation, analysis.}
+{See in Education section above.}
+
+%------------------------------------------------
+
+\job
+{Feb 2009 -}{Jun 2010}
+{Bielefeld University, AI Group}
+{https://www.techfak.uni-bielefeld.de/ags/wbski/hiwis/sbrandau/}
+{Research Assistant}
+{Work on, and maintain, virtual reality applications for cognitive science
+  studies. Teaching assistant (run lab sessions, grade home work assignments).}
+
+%------------------------------------------------
+
+\job
+{Sep 2007}{Mar 2008}
+{Comet Consulting, Salzburg (now part of Rhomberg)}
+{https://www.rhomberg.com/en}
+{Freelance Programmer, C\#}
+{Develop 3D image recognition algorithms and software in \textbf{C\#} for 3D
+  LIDAR scanners to monitor safety procedures at railway tunnel construction
+  sites. Much of the job was on-site, but overlap with the social work job was
+  during nights and evenings.}
+
+%------------------------------------------------
+
+\job
+{Sep 2006}{Mar 2008}
+{Laube Sozialpsychiatrische Aktivitäten GmbH}
+{http://www.laube.at/}
+{Social Work}
+{Austrian civil service, as an alternative to being drafted for the military.
+  Work with chronically mentally ill people. Learned lots.}
+
+%----------------------------------------------------------------------------------------
+%	IT/COMPUTING SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Software Engineering Skills}
+
+\skillgroup{Programming Languages}{
+  \textit{(roughly in order of familiarity)}\\
+  \textbf{Java} - proficient\\
+  \textbf{Scala} - have used it on several occasions, for example the \spencer{}
+  and \secret{} DSL-compilers.\\
+  \textbf{Haskell} - used (and loved) it lots during the first 3 years of my
+  PhD studies, working on \encore{}; not much since.\\
+  \textbf{Rust} - Have implemented a throw-away prototype version of \secret{}. I
+  know enough to be dangerous.\\
+  \textbf{C} - have been teaching basic C to university students every year of my PhD.\\
+  \textbf{C++} - know the core principles that distinguish it from C (smart
+  pointers, RAII, objects, ...), but would like to know more.\\
+  \textbf{SQL (Postgres-SQL)} - have used \textbf{Postgres-SQL} to implement
+  complex graph queries in \spencer{}.
+
+}
+
+%------------------------------------------------
+
+\skillgroup{Miscellaneous} {
+
+  \textit{Data Analysis:} I have used \textbf{python/pandas},
+  \textbf{Apache Spark} (on a single node; including \textbf{GraphX}), and \textbf{Postgres}.\\
+  \textit{Optimisation of JVM code:} optimisation is a big part of my research work on
+  \secret{}. I have used the \textbf{JMH} framework, \textbf{VisualVM}, and \textbf{JITWatch}.\\
+  \textit{Version control:} mostly using \textbf{git}. Also, although rusty,
+  \textbf{Mercurial} and \textbf{SVN}.\\
+  \textit{Compilers:} I have worked on several \textbf{compilers}: one for a
+  general purpose language (\encore{}) and have developed two compilers for
+  domain-specific languages (for \spencer{}, compiling to SQL; and for \secret{},
+  compiling to
+  Java bytecode). \\
+  \textit{Java Bytecode:} I have used both the \textbf{\href{foo}{ASM
+      framework}} and \textbf{\href{https://bytebuddy.net}{bytebuddy}} to a)
+  \textbf{programmatically modify Java programs as they are running}, and b)
+  \textbf{generate Java code} from high level specifications.}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{References}
+\input{references.inp.tex}
+\end{document}
