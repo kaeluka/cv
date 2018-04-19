@@ -22,6 +22,7 @@
 \documentclass[10pt]{article} % Default font size
 
 \input{structure.tex} % Include the file specifying document layout
+\newcommand{\maincolwidth}{13cm}
 \usepackage{tikz}
 
 %----------------------------------------------------------------------------------------
@@ -56,33 +57,36 @@
 %----------------------------------------------------------------------------------------
 
 \section{Personal Profile}
-I'm a last year PhD student at Uppsala University. My research has focused on
-aliasing (several variables holding references to the same datum) in imperative
-programming languages. Aliasing makes both writing, understanding, and
-optimising code hard. Aliasing has been the common theme that has been tying
-together my research spanning from \textbf{type system/language design} to
-\textbf{dynamic analysis of program corpora} to a domain-specific language for
-\textbf{data structure-design and -optimisation}.
 
-I deeply care about program performance, but I also think that most programmers
-shouldn't need to. To this end, I've been trying to find ways to constrain high
-level languages in just the right way: constraints that don't hurt writing code
-in practise, yet give enough information to compiler, runtime, or framework to
-do optimisations that can provide great program performance.
+{I'm a last year PhD student at Uppsala University. My research has focused on
+  aliasing (several variables holding references to the same datum) in imperative
+  programming languages. Aliasing makes both writing, understanding, and
+  optimising code hard. Aliasing has been the common theme that has been tying
+  together my research spanning from \textbf{type system/language design} to
+  \textbf{dynamic analysis of program corpora} to a domain-specific language for
+  \textbf{data structure-design and -optimisation}.
 
+  I deeply care about program performance, but I also think that most programmers
+  shouldn't need to. To this end, I've been trying to find ways to constrain high
+  level languages in just the right way: constraints that don't hurt writing code
+  in practise, yet give enough information to compiler, runtime, or framework to
+  do optimisations that can provide great program performance.
 
-I'm especially, but not exclusively, interested in opportunities that include
-any or several of the following:
+  I'm especially, but not exclusively, interested in opportunities that include
+  any or several of the following:
 
-\begin{itemize}
-\item Building tooling support for program development. This includes
-  performance measurement, bug finding, testing, data-visualisation and
-  -analysis, framework- and runtime-development.
-\item Doing research in an industrial setting.
-\item Teaching/mentoring others.
-\item Work on language design- and implementation, including domain-specific languages for domains I'd get to learn about in the process!
-\item Working on programming runtimes or garbage collectors.
-\end{itemize}
+  \parbox{15.2cm}{
+  \begin{itemize}
+  \renewcommand{\labelitemi}{\sqbullet}
+  \item Building tooling support for program development. This includes
+    performance measurement, bug finding, testing, data-visualisation and
+    -analysis, framework- and runtime-development.
+  \item Doing research in an industrial setting.
+  \item Teaching/mentoring others.
+  \item Work on language design- and implementation, including domain-specific languages for domains I'd get to learn about in the process!
+  \item Working on programming runtimes or garbage collectors.
+  \end{itemize}}
+}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -98,25 +102,25 @@ any or several of the following:
 
 \tabbedblock{
 \bf{2013-2018} \> PhD in Computer Science -
-\href{http://www.universityofcalifornia.edu}{Uppsala University} \\[5pt]
+\href{http://katalog.uu.se/empinfo/?id=N12-145}{Uppsala University} \\[5pt]
 \> Research on programming language design, analysis, and implementation. \\
-\> \parbox{13cm}{During my PhD education I have:
-\begin{itemize}
-  \renewcommand{\labelitemi}{\sqbullet}
-\item $\ldots$ designed \ddomains{}, a type system to express fine grained
-  alias invariants in data structures.
-\item $\ldots$ implemented \spencer{}, a dynamic analysis tool that runs real
-  world Java software, collects extensive program traces and lets users analyse
-  these traces using a specifically designed \emph{domain-specific language}
-  executed by a \emph{web service}.
-\item $\ldots$ worked on \secret{}, a domain-specific
-  language and compiler using Java's annotation framework that let users
-  implement data structures that are simple, have good performance, and can
-  adapt their performance to match a wide range of use cases. \secret{} is
-  currently unpublished.
-\item $\ldots$ worked on the compiler of the \encore{} research language, an object
-  oriented programming language with concurrently executing actors as objects.
-\end{itemize}}
+\> \hspace*{-5mm}\parbox{12cm}{
+    \begin{itemize}
+      \renewcommand{\labelitemi}{\sqbullet}
+    \item I designed \ddomains{}, a type system to express fine grained
+      alias invariants in data structures.
+    \item I designed and implemented \spencer{}, a dynamic analysis tool that runs real
+      world Java software, collects extensive program traces and lets users analyse
+      these traces using a specifically designed \emph{domain-specific language}
+      executed by a \emph{web service}.
+    \item I designed and implemented \secret{}, a domain-specific
+      language and compiler using Java's annotation framework that let users
+      implement data structures that are simple, have good performance, and can
+      adapt their performance to match a wide range of use cases. \secret{} is
+      currently unpublished.
+    \item I worked, with others, on the compiler of the \encore{} research language, an object
+      oriented programming language with concurrently executing actors as objects.
+    \end{itemize}}
 }
 
 %------------------------------------------------
@@ -141,29 +145,34 @@ any or several of the following:
 %----------------------------------------------------------------------------------------
 
 \section{Selected Publications}
-\newcommand{\paperentry}[5]{\bf{#1}\>\itemtitle{#2}\\\>\parbox{10cm}{\footnotesize{#3}}\\[1mm]\>\parbox{10cm}{#4}\\[1mm]\>\footnotesize{\url{#5}}\\[5mm]}
+%\newcommand{\paperentry}[6]{\bf{#1}\>\itemtitle{#2}\\\>\parbox{\maincolwidth}{\footnotesize{\emph{#3}}}\\\>\parbox{10cm}{\footnotesize{#4}}\\[1mm]\>\parbox{10cm}{#5}\\[1mm]\>\footnotesize{\url{#6}}\\[5mm]}
+\newcommand{\barepaperentry}[5]{\bf{#1}\>\parbox{\maincolwidth}{\itemtitle{#2}}\\\>\parbox{\maincolwidth}{\footnotesize{\emph{#3}}}\\\>\parbox{\maincolwidth}{\footnotesize{#4}}\\[1mm]\>\parbox{\maincolwidth}{#5}}
+\newcommand{\paperentry}[6]{\barepaperentry{#1}{#2}{#3}{#4}{#5}\\[1mm]\>\parbox{\maincolwidth}{\footnotesize{\url{#6}}}\\[5mm]}
+\newcommand{\linklesspaperentry}[6]{\barepaperentry{#1}{#2}{#3}{#4}{#5}\\[5mm]}
 
-\newcommand{\papersgroup}[1]{\begin{tabbing}\hspace{2.5cm} \= \hspace{8cm} \=\kill#1\end{tabbing}}
+\newcommand{\papersgroup}[1]{\begin{tabbing}\hspace{2cm} \= \hspace{8cm} \=\kill#1\end{tabbing}}
 
 \papersgroup{
-  \paperentry
+  \linklesspaperentry
   {???}
   {\secret{}}
+  {withheld}
   {(under submission)}
   {A domain specific language to develop data structures that are simple, have
     good performance, and can adapt to many different use cases.}
-  {}
 
   \paperentry
-  {MSR 2017}
+  {MSR'17}
   {Spencer: Interactive Heap Analysis for the Masses}
+  {Stephan Brandauer and Tobias Wrigstad}
   {Int'l Conf. on Mining Software Repositories (MSR) 2017. Buenos Aires, AR.}
   {The paper that introduces the Spencer project.}
   {http://stbr.me/spencer}
 
   \paperentry
-  {QAPL 2017}
+  {QAPL'17}
   {Mining for Safety using Interactive Trace Analysis}
+  {Stephan Brandauer and Tobias Wrigstad}
   {Workshop on Quantitative Aspects of Programming Languages and Systems (QAPL)
     2017. Uppsala, SE.}
   {An application of Spencer to a corpus of programs, looking
@@ -171,21 +180,24 @@ any or several of the following:
   {http://stbr.me/spencer}
 
   \paperentry
-  {SFM 2015}
+  {SFM'15}
   {Parallel Objects for Multicores: A Glimpse at the Parallel Language Encore}
+  {Stephan Brandauer, Elias Castegren, Dave Clarke, Francisco Fernández, Einar
+    Broch Johnsen, Ka I Pun, S. Lizeth Tapia Tarifa, Tobias Wrigstad, and Albert
+    Mingkun Yang}
   {15th Int'l School on Formal Methods f. Design of Computer, Communication and
     Software Systems (SFM) 2015. Bertinoro, IT.}
   {An overview of the Encore language.}
   {http://stbr.me/Encore-Glimpse}
 
   \paperentry
-  {OOPSLA 2015}
+  {OOPSLA'15}
   {Disjointness Domains for Fine-Grained Aliasing}
+  {Stephan Brandauer, Dave Clarke, and Tobias Wrigstad}
   {Object-Oriented Programming, Systems, Languages and Applications (OOPSLA)
     2015. Pittsburgh, PA, USA.}
   {A novel type system for alias control.}
-  {http://stbr.me/Disjointness-Domains-for-Fine-Grained-Aliasing}
-}
+  {http://stbr.me/Disjointness-Domains-for-Fine-Grained-Aliasing}}
 
 \section{Employment History}
 
@@ -235,20 +247,18 @@ any or several of the following:
 \section{Software Engineering Skills}
 
 \skillgroup{Programming Languages}{
-  \textit{(roughly in order of familiarity)}\\
-  \textbf{Java} - proficient.\\
+  \textit{(roughly in order of familiarity)}\\[1mm]
+  \textbf{Java} - My go-to language.\\[1mm]
   \textbf{Scala} - have used it on several occasions, for example the \spencer{}
-  and \secret{} DSL-compilers.\\
-  \textbf{Haskell} - used (and loved) it lots during the first 3 years of my
-  PhD studies, working on \encore{}; not much since.\\
-  \textbf{Rust} - Have implemented a throw-away prototype version of \secret{}. I
-  know enough to be dangerous.\\
-  \textbf{C} - have been teaching basic C to university students every year of my PhD.\\
+  and \secret{} DSL-compilers.\\[1mm]
+  \textbf{Haskell} - used (and loved) it lots for the first 3 years of my
+  PhD studies, working on the \encore{} compiler.\\[1mm]
+  \textbf{Rust} - Have implemented a throw-away prototype version of \secret{}.\\[1mm]
+  \textbf{C} - have been teaching basic C to university students every year of my PhD.\\[1mm]
   \textbf{C++} - know the core principles that distinguish it from C (smart
-  pointers, RAII, objects, ...), but would like to know more.\\
+  pointers, RAII, objects, zero-cost abstractions, templates, $\ldots$), but would like to know more.\\[1mm]
   \textbf{SQL (Postgres-SQL)} - have used \textbf{Postgres-SQL} to implement
   complex graph queries in \spencer{}.
-
 }
 
 %------------------------------------------------
@@ -256,16 +266,16 @@ any or several of the following:
 \skillgroup{Miscellaneous} {
 
   \textit{Data Analysis:} I have used \textbf{python/pandas},
-  \textbf{Apache Spark} (on a single node; including \textbf{GraphX}), and \textbf{Postgres}.\\
+  \textbf{Apache Spark} (single node; also \textbf{GraphX}), and \textbf{Postgres}.\\[1mm]
   \textit{Optimisation of JVM code:} optimisation is a big part of my research work on
-  \secret{}. I have used the \textbf{JMH} framework, \textbf{VisualVM}, and \textbf{JITWatch}.\\
+  \secret{}. I have used the \textbf{JMH} framework, \textbf{VisualVM}, and \textbf{JITWatch}.\\[1mm]
   \textit{Version control:} mostly using \textbf{git}. Also, although rusty,
-  \textbf{Mercurial} and \textbf{SVN}.\\
+  \textbf{Mercurial} and \textbf{SVN}.\\[1mm]
   \textit{Compilers:} I have worked on several \textbf{compilers}: one for a
   general purpose language (\encore{}) and have developed two compilers for
   domain-specific languages (for \spencer{}, compiling to SQL; and for \secret{},
   compiling to
-  Java bytecode). \\
+  Java bytecode).\\[1mm]
   \textit{Java Bytecode:} I have used both the \textbf{\href{foo}{ASM
       framework}} and \textbf{\href{https://bytebuddy.net}{bytebuddy}} to a)
   \textbf{programmatically modify Java programs as they are running}, and b)
