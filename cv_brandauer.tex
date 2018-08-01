@@ -29,8 +29,6 @@
 
 \begin{document}
 
-
-
 %----------------------------------------------------------------------------------------
 %	NAME AND CONTACT INFORMATION
 %----------------------------------------------------------------------------------------
@@ -95,7 +93,7 @@
 \newcommand{\project}[1]{\emph{#1}}
 \newcommand{\ddomains}{\project{Disjointness Domains}}
 \newcommand{\spencer}{\project{Spencer}}
-\newcommand{\secret}{\project{(name withheld)}}
+\newcommand{\cflat}{\project{$C\flat$}}
 \newcommand{\encore}{\project{Encore}}
 
 \section{Education}
@@ -113,10 +111,10 @@
       world Java software, collects extensive program traces and lets users analyse
       these traces using a specifically designed \emph{domain-specific language}
       executed by a \emph{web service}.
-    \item I designed and implemented \secret{}, a domain-specific
+    \item I designed and implemented \cflat{}, a domain-specific
       language and compiler using Java's annotation framework that let users
       implement data structures that are simple, have good performance, and can
-      adapt their performance to match a wide range of use cases. \secret{} is
+      adapt their performance to match a wide range of use cases. \cflat{} is
       currently unpublished.
     \item I worked, with others, on the compiler of the \encore{} research language, an object
       oriented programming language with concurrently executing actors as objects.
@@ -146,25 +144,27 @@
 
 \section{Selected Publications}
 %\newcommand{\paperentry}[6]{\bf{#1}\>\itemtitle{#2}\\\>\parbox{\maincolwidth}{\footnotesize{\emph{#3}}}\\\>\parbox{10cm}{\footnotesize{#4}}\\[1mm]\>\parbox{10cm}{#5}\\[1mm]\>\footnotesize{\url{#6}}\\[5mm]}
-\newcommand{\barepaperentry}[5]{\bf{#1}\>\parbox{\maincolwidth}{\itemtitle{#2}}\\\>\parbox{\maincolwidth}{\footnotesize{\emph{#3}}}\\\>\parbox{\maincolwidth}{\footnotesize{#4}}\\[1mm]\>\parbox{\maincolwidth}{#5}}
+\newcommand{\barepaperentry}[5]{\bf{#1}\>\parbox{\maincolwidth}{\itemtitle{#2}}\\\>\parbox{\maincolwidth}{\footnotesize{\emph{#3}}}\\[1mm]\>\parbox{\maincolwidth}{\footnotesize{#4}}\\[1mm]\>\parbox{\maincolwidth}{#5}}
 \newcommand{\paperentry}[6]{\barepaperentry{#1}{#2}{#3}{#4}{#5}\\[1mm]\>\parbox{\maincolwidth}{\footnotesize{\url{#6}}}\\[5mm]}
 \newcommand{\linklesspaperentry}[6]{\barepaperentry{#1}{#2}{#3}{#4}{#5}\\[5mm]}
 
 \newcommand{\papersgroup}[1]{\begin{tabbing}\hspace{2cm} \= \hspace{8cm} \=\kill#1\end{tabbing}}
 
 \papersgroup{
-  \linklesspaperentry
-  {???}
-  {\secret{}}
-  {withheld}
-  {(under submission)}
+  \paperentry
+  {Onward!'18}
+  {\cflat{}: A New Approach to Efficient and Tunable Collections}
+  {St. Brandauer, E. Castegren, T. Wrigstad}
+  {Onward!: Symposium on New Ideas in Programming and Reflections on Software
+    2018. Boston, USA.}
   {A domain specific language to develop data structures that are simple, have
     good performance, and can adapt to many different use cases.}
+  {http://stbr.me/cflat}
 
   \paperentry
   {MSR'17}
   {Spencer: Interactive Heap Analysis for the Masses}
-  {Stephan Brandauer and Tobias Wrigstad}
+  {St. Brandauer and T. Wrigstad}
   {Int'l Conf. on Mining Software Repositories (MSR) 2017. Buenos Aires, AR.}
   {The paper that introduces the Spencer project.}
   {http://stbr.me/spencer}
@@ -172,7 +172,7 @@
   \paperentry
   {QAPL'17}
   {Mining for Safety using Interactive Trace Analysis}
-  {Stephan Brandauer and Tobias Wrigstad}
+  {St. Brandauer and T. Wrigstad}
   {Workshop on Quantitative Aspects of Programming Languages and Systems (QAPL)
     2017. Uppsala, SE.}
   {An application of Spencer to a corpus of programs, looking
@@ -182,10 +182,9 @@
   \paperentry
   {SFM'15}
   {Parallel Objects for Multicores: A Glimpse at the Parallel Language Encore}
-  {Stephan Brandauer, Elias Castegren, Dave Clarke, Francisco Fernández, Einar
-    Broch Johnsen, Ka I Pun, S. Lizeth Tapia Tarifa, Tobias Wrigstad, and Albert
-    Mingkun Yang}
-  {15th Int'l School on Formal Methods f. Design of Computer, Communication and
+  {St. Brandauer, E. Castegren, D. Clarke, F. Fernández, E.
+    Broch Johnsen, Ka I Pun, S. Lizeth Tapia Tarifa, T. Wrigstad, and A. Yang}
+  {15th Int'l School on Formal Methods f. Design of Comp., Comm. and
     Software Systems (SFM) 2015. Bertinoro, IT.}
   {An overview of the Encore language.}
   {http://stbr.me/Encore-Glimpse}
@@ -193,7 +192,7 @@
   \paperentry
   {OOPSLA'15}
   {Disjointness Domains for Fine-Grained Aliasing}
-  {Stephan Brandauer, Dave Clarke, and Tobias Wrigstad}
+  {St. Brandauer, D. Clarke, and T. Wrigstad}
   {Object-Oriented Programming, Systems, Languages and Applications (OOPSLA)
     2015. Pittsburgh, PA, USA.}
   {A novel type system for alias control.}
@@ -250,10 +249,10 @@
   \textit{(roughly in order of familiarity)}\\[1mm]
   \textbf{Java} - My go-to language.\\[1mm]
   \textbf{Scala} - have used it on several occasions, for example the \spencer{}
-  and \secret{} DSL-compilers.\\[1mm]
+  and \cflat{} DSL-compilers.\\[1mm]
   \textbf{Haskell} - used (and loved) it lots for the first 3 years of my
   PhD studies, working on the \encore{} compiler.\\[1mm]
-  \textbf{Rust} - Have implemented a throw-away prototype version of \secret{}.\\[1mm]
+  \textbf{Rust} - Have implemented a throw-away prototype version of \cflat{}.\\[1mm]
   \textbf{C} - have been teaching basic C to university students every year of my PhD.\\[1mm]
   \textbf{C++} - know the core principles that distinguish it from C (smart
   pointers, RAII, objects, zero-cost abstractions, templates, $\ldots$), but would like to know more.\\[1mm]
@@ -268,12 +267,12 @@
   \textit{Data Analysis:} I have used \textbf{python/pandas},
   \textbf{Apache Spark} (single node; also \textbf{GraphX}), and \textbf{Postgres}.\\[1mm]
   \textit{Optimisation of JVM code:} optimisation is a big part of my research work on
-  \secret{}. I have used the \textbf{JMH} framework, \textbf{VisualVM}, and \textbf{JITWatch}.\\[1mm]
+  \cflat{}. I have used the \textbf{JMH} framework, \textbf{VisualVM}, and \textbf{JITWatch}.\\[1mm]
   \textit{Version control:} mostly using \textbf{git}. Also, although rusty,
   \textbf{Mercurial} and \textbf{SVN}.\\[1mm]
   \textit{Compilers:} I have worked on several \textbf{compilers}: one for a
   general purpose language (\encore{}) and have developed two compilers for
-  domain-specific languages (for \spencer{}, compiling to SQL; and for \secret{},
+  domain-specific languages (for \spencer{}, compiling to SQL; and for \cflat{},
   compiling to
   Java bytecode).\\[1mm]
   \textit{Java Bytecode:} I have used both the \textbf{\href{foo}{ASM
